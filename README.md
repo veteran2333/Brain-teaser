@@ -39,6 +39,23 @@ ES6系列
         }
         add([1, 2]); // 3
         
+    四、
+            var obj = {
+            foo: function () { console.log(this.bar) },
+            bar: 1
+            };
+        声明一个e对象，对象中保存着一个名为foo的方法；该方法可以打印对象obj的另一个属性bar,
+        
+        我们吧这个obj下的foo方法赋值给声明在全局中的foo方法，
+        我们分别调用该方法，输出不同的bar变量，
+        obj.foo输出的是与其在同一作用域的变量，全局的foo方法输出全局的bar变量
+            var foo = obj.foo;
+            var bar = 2;
+
+            obj.foo() // 1
+            foo() // 2
+        
+        
 
         
         
