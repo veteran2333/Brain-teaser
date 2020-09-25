@@ -145,3 +145,26 @@ module.exports = {
 };
 ```
 
+七、
+
+```js
+        quit({commit}){
+            commit('QUIT')
+            commit('tagsview/DEL_ALL',null,{root:true})
+        }
+```
+
+在一个store的模块调用另一个模块的方法，要传递三个参数吧，
+
+第一个参数，目标方法所在模块的“路径”（模块名/方法）
+
+第二个参数，给目标传递的实参，“DATA”,即使没有也应该使用null或者{}占位
+
+第三个参数，是配置参数，表明使用的其他模块的方法。
+
+此外还有rootGetters方法，可以调用其他模块的getters
+
+```js
+console.log(rootGetters['user/getuser'])
+```
+
