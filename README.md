@@ -168,3 +168,62 @@ module.exports = {
 console.log(rootGetters['user/getuser'])
 ```
 
+#### 八、
+
+## **sort**
+
+```js
+	    let arr = [1,5,29,'80']
+        console.log(arr.sort()); //[1,29,5,'80']
+
+        // 调用sort()方法，如果不传参，则会进行一位一位的比较，比较的规则就是字符串编码规则
+	    //（可以理解为，先转成字符串再比较编码）
+        // 值得一提的是，使用sort（）方法会改变原有数组
+
+        console.log(arr.sort((a,b)=>a-b)); //[1,5,29,'80']
+
+        // 如果本数组全部是数字组成，这个结果不难理解，但是对于数组中含有字符串数组的这种情况，实际上也是适用的，
+        // 因为，我们在比较的时候，进行了隐式的类型转换  例如：'8'- 8 = 0;
+
+        console.log(arr instanceof Array);              //true
+        console.log(arr.__proto__==Array.prototype);    //true
+        console.log(arr.constructor==Array);            //true
+        console.log(Array.isArray(arr));                //true
+
+        // 检测一个数组是不是数组，因为使用typeof 回返回 object 
+
+```
+
+#### 			sort（）方法常应用于排序，一般来说接受一个排序函数，  直接 调用sort()方法，如果不传参，则会进行一位一位的比较，比较的规则就是字符串编码规则（可以理解为，先转成字符串再比较编码） 值得一提的是，使用sort（）方法会改变原有数组
+
+#### 检测一个数组是不是数组，因为使用typeof 回返回 object ，文中所提到的方法主要是依据原型链的的性质。
+
+
+
+## **join( )**
+
+```js
+        console.log(arr.join());        //  1,5,29,80
+        console.log(arr.join(':'));        //  1:5:29:80
+```
+
+join方法可以接受一个参数，用作将数组的每个项进行拼接字符串时的分割符号。默认不传参，是逗号
+
+## split( )
+
+```js
+        console.log('我爱北京天安门'.split());//['我爱北京天安门']           length=1
+        console.log('我爱北京,天安门'.split());//['我爱北京,天安门']         length=1
+        console.log('我爱北京,天安门'.split(''));// ["我", "爱", "北", "京", ",", "天", "安", "门"]     length=8
+        console.log('我爱北京,天安门'.split(','));//['我爱北京','天安门']    length=2
+
+        console.log('我爱北京,天安门'.split(',',1));//["我爱北京"]    length=2  
+		//split(',',x)
+		//第二个参数只取前X项
+            let str='我爱北京,天安门'
+        console.log(str.split(',',1),str);          //["我爱北京"] "我爱北京,天安门"  不改变原有字符串
+
+        let newstr='我1爱2北3京4,天5安6门'
+        console.log(newstr.split(/\d/),str);// ["我", "爱", "北", "京", ",天", "安", "门"] "我爱北京,天安门" 接受正则。
+```
+
